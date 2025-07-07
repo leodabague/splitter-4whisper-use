@@ -1,0 +1,20 @@
+[server]
+# Aumenta o limite de upload para 1GB (1024 MB)
+maxUploadSize = 1024
+
+# Aumenta o limite de mensagem WebSocket para 1GB também
+maxMessageSize = 1024
+
+# Habilita compressão WebSocket para melhor performance
+enableWebsocketCompression = true
+
+[browser]
+# Configurações do navegador
+gatherUsageStats = false
+
+[theme]
+# Tema personalizado para melhor aparência
+primaryColor = "#FF6B6B"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F0F2F6"
+textColor = "#262730" 

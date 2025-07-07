@@ -8,6 +8,22 @@ import io
 import subprocess
 import warnings
 
+# Configuração do Streamlit para aumentar limite de upload para 1GB
+st.set_page_config(
+    page_title="Extrator de Áudio MP4",
+    page_icon="🎵",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
+# Importa configurações personalizadas
+try:
+    from streamlit_config import configure_streamlit, show_upload_info
+    configure_streamlit()
+except ImportError:
+    # Se o arquivo de configuração não existir, usa configuração básica
+    pass
+
 # Suprimir warnings do pydub sobre ffmpeg
 warnings.filterwarnings("ignore", message="Couldn't find ffmpeg")
 warnings.filterwarnings("ignore", message="Couldn't find ffprobe")
@@ -238,11 +254,17 @@ def main():
     st.title("🎵 Extrator de Áudio MP4 para WAV")
     st.markdown("---")
     
+    # Informações sobre o limite de upload
+    try:
+        show_upload_info()
+    except NameError:
+        st.info("📁 **Limite de Upload**: Configurado para aceitar arquivos de até **1GB** (1024 MB)")
+    
     # Upload do arquivo
     uploaded_file = st.file_uploader(
-        "Selecione um arquivo MP4",
+        "Selecione um arquivo MP4 (até 1GB)",
         type=['mp4'],
-        help="Carregue um arquivo de vídeo MP4 para extrair o áudio"
+        help="Carregue um arquivo de vídeo MP4 para extrair o áudio. Limite: 1GB"
     )
     
     if uploaded_file is not None:
@@ -446,24 +468,31 @@ def main():
     st.markdown("### ℹ️ Informações")
     st.markdown("""
     **Como usar:**
-    1. Faça upload de um arquivo MP4
+    1. Faça upload de um arquivo MP4 (até 1GB)
     2. Escolha se deseja um arquivo único ou dividido em chunks de 20MB
     3. Clique em "Extrair Áudio"
     4. Baixe o(s) arquivo(s) gerado(s)
     
     **Formatos suportados:**
-    - 📥 Entrada: MP4
-    - 📤 Saída: MP3 (recomendado), AAC, WAV
+    - 📥 Entrada: MP4 (até 1GB)
+    - 📤 Saída: M4A, MP3, WEBM, MPGA, WAV
     
-    **Recomendações:**
-    - **MP3 192kbps**: Boa qualidade, arquivo pequeno
-    - **AAC 256kbps**: Qualidade superior, arquivo médio  
+    **Recomendações para transcrição:**
+    - **M4A 64kbps**: Menor tamanho, ideal para transcrição
+    - **MP3 64kbps**: Boa compatibilidade, tamanho pequeno
+    - **WEBM 64kbps**: Muito pequeno, formato moderno
     - **WAV**: Qualidade máxima, arquivo grande
     
-    **Tamanhos aproximados (30min de áudio):**
-    - MP3 192kbps: ~43MB
-    - AAC 256kbps: ~58MB
-    - WAV: ~315MB
+    **Tamanhos aproximados (1 hora de áudio):**
+    - M4A 64kbps: ~28MB
+    - MP3 64kbps: ~28MB
+    - WEBM 64kbps: ~25MB
+    - WAV 16kHz: ~115MB
+    
+    **Configuração de Limite:**
+    - ✅ Limite de upload: **1GB** (1024 MB)
+    - ✅ Configurado via `.streamlit/config.toml`
+    - ✅ Otimizado para arquivos grandes de reunião
     """)
 
 if __name__ == "__main__":
