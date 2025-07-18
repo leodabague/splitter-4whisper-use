@@ -258,7 +258,7 @@ def main():
     try:
         show_upload_info()
     except NameError:
-        st.info("📁 **Limite de Upload**: Configurado para aceitar arquivos de até **1GB** (1024 MB)")
+        st.info("📁 **Limite de Upload**: Configurado para aceitar arquivos de até **2GB** (2024 MB)")
     
     # Upload do arquivo
     uploaded_file = st.file_uploader(
@@ -490,7 +490,7 @@ def main():
     - WAV 16kHz: ~115MB
     
     **Configuração de Limite:**
-    - ✅ Limite de upload: **1GB** (1024 MB)
+    - ✅ Limite de upload: **2GB** (2024 MB)
     - ✅ Configurado via `.streamlit/config.toml`
     - ✅ Otimizado para arquivos grandes de reunião
     """)

@@ -1,9 +1,9 @@
 [server]
-# Aumenta o limite de upload para 1GB (1024 MB)
-maxUploadSize = 1024
+# Aumenta o limite de upload para 2GB (2024 MB)
+maxUploadSize = 2024
 
-# Aumenta o limite de mensagem WebSocket para 1GB também
-maxMessageSize = 1024
+# Aumenta o limite de mensagem WebSocket para 2GB também
+maxMessageSize = 2024
 
 # Habilita compressão WebSocket para melhor performance
 enableWebsocketCompression = true
