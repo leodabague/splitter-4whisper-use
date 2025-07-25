@@ -262,9 +262,9 @@ def main():
     
     # Upload do arquivo
     uploaded_file = st.file_uploader(
-        "Selecione um arquivo MP4 (até 1GB)",
+        "Selecione um arquivo MP4",
         type=['mp4'],
-        help="Carregue um arquivo de vídeo MP4 para extrair o áudio. Limite: 1GB"
+        help="Carregue um arquivo de vídeo MP4 para extrair o áudio. Limite: 2GB"
     )
     
     if uploaded_file is not None:

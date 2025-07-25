@@ -1,7 +1,7 @@
 [project]
 name = "file-splitter"
 version = "0.1.0"
-description = "Add your description here"
+description = "Otimizador de arquivo para ser usado em transcrição local ou via API (whisper | openAI)"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
