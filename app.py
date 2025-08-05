@@ -468,13 +468,13 @@ def main():
     st.markdown("### ℹ️ Informações")
     st.markdown("""
     **Como usar:**
-    1. Faça upload de um arquivo MP4 (até 1GB)
+    1. Faça upload de um arquivo MP4 (até 2GB)
     2. Escolha se deseja um arquivo único ou dividido em chunks de 20MB
     3. Clique em "Extrair Áudio"
     4. Baixe o(s) arquivo(s) gerado(s)
     
     **Formatos suportados:**
-    - 📥 Entrada: MP4 (até 1GB)
+    - 📥 Entrada: MP4 (até 2GB)
     - 📤 Saída: M4A, MP3, WEBM, MPGA, WAV
     
     **Recomendações para transcrição:**
