@@ -9,6 +9,3 @@ wheels/
 # Virtual environments
 .venv
 .env
-
-run_app.bat
-run_app.sh
